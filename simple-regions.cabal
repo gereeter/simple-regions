@@ -1,0 +1,14 @@
+Name:          simple-regions
+Version:       0.1
+Description:   A simple implementation of monadic regions, allowing safe access to resources with prompt, automatic finalization
+Author:        Jonathan S
+License:       MIT
+License-File:  LICENSE
+Build-Type:    Simple
+Cabal-Version: >=1.8
+
+library
+    HS-Source-Dirs:  src
+    Build-Depends:   base, transformers, monad-safe
+    Exposed-modules: Control.Monad.Trans.Region, Data.Resource
+    ghc-options:     -Wall
