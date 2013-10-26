@@ -3,6 +3,7 @@ module Data.Resource (
     , allocate
     , withResource
     , liftResource
+    , mkResource
     , unsafeGetResource
 ) where
 
@@ -23,6 +24,9 @@ liftResource (Resource a) = return (Resource a)
 
 withResource :: Resource s a -> (a -> RegionT s m b) -> RegionT s m b
 withResource (Resource a) f = f a
+
+mkResource :: a -> Resource s a
+mkResource = Resource
 
 unsafeGetResource :: Resource s a -> a
 unsafeGetResource (Resource a) = a
